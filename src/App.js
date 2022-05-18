@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+// APP Componens
+import { Grid } from '@mui/material';
+import AppComponent from '../src/components/App';
+import { Provider } from 'react-redux';
+// STORE
+import store from './store';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Provider store={store}>
+			<Grid className='App' container justifyContent='center' alignItems='center' sx={{ height: '100vh' }}>
+				<AppComponent />
+			</Grid>
+		</Provider>
+	);
 }
 
 export default App;
