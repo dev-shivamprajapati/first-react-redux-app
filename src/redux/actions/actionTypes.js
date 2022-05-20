@@ -1,0 +1,7 @@
+// Action Types
+const SET_LOGIN_DATA = 'SET_LOGIN_DATA';
+const SIGN_UP = 'SIGN_UP';
+const SHOW_SNACKBAR = 'SHOW_SNACKBAR';
+const CLOSE_SNACKBAR = 'CLOSE_SNACKBAR';
+//  Exporting action types
+export { SET_LOGIN_DATA, SIGN_UP, SHOW_SNACKBAR, CLOSE_SNACKBAR };
