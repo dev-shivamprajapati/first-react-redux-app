@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import { loginReducer } from './login';
-import { authReducer } from './auth';
-import { snackbarReducer } from './snackbar';
+// REducers
+import { authReducer } from './Auth';
+import { snackbarReducer } from './Snackbar';
+import { postReducer } from './Post';
 
 export default combineReducers({
-	loginReducer,
 	authReducer,
 	snackbarReducer,
+	postReducer,
 });

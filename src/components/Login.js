@@ -1,15 +1,26 @@
 import React from 'react';
+// Formik and Yup
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+// MUI
 import { Button, Grid, TextField } from '@mui/material';
 // Ruter DOM
 import { useNavigate } from 'react-router-dom';
+// REDUX
+import { useSelector, useDispatch } from 'react-redux';
+// Actions
+import { showSnackbar } from '../redux/actions/Snackbar';
+import { logIn } from '../redux/actions/Auth';
+// Formik Validation Schema
 const validationSchema = yup.object({
 	email: yup.string().email('Enter a valid email').required('Email is required'),
 	password: yup.string().min(8, 'Password should be of minimum 8 characters length').required('Password is required'),
 });
-
 const WithMaterialUI = () => {
+	// Redix
+	const dispatch = useDispatch();
+	const loggedIn = useSelector(({ authReducer }) => authReducer.loggedIn);
+
 	// Valoidation schema
 	const formik = useFormik({
 		initialValues: {
@@ -18,13 +29,30 @@ const WithMaterialUI = () => {
 		},
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
+			proceedLogin({ email: values.email, password: values.password });
 		},
 	});
 	// useNavigate
 	const navigate = useNavigate();
 	const gotoSignUp = () => {
 		navigate('/signup');
+	};
+	const gotoDashboard = () => {
+		navigate('/dashboard');
+	};
+	// Login
+	const proceedLogin = async (credentials) => {
+		await dispatch(logIn(credentials));
+		if (loggedIn) {
+			gotoDashboard();
+		} else {
+			dispatch(
+				showSnackbar({
+					message: 'Invalid credentials entered. Please check and try again!',
+					severity: 'error',
+				}),
+			);
+		}
 	};
 
 	return (

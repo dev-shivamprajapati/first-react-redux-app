@@ -4,6 +4,8 @@ import AppComponent from '../src/components/App';
 import { Provider } from 'react-redux';
 // STORE
 import store from './redux/store';
+// APP CSS
+import './App.css';
 
 function App() {
 	return (

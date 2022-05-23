@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 // Proptypes
 import PropTypes from 'prop-types';
 // Actions
-import { closeSnackbar } from '../redux/actions/snackbar';
+import { closeSnackbar } from '../redux/actions/Snackbar';
 
 function SnackbarComponent({ open, message, severity }) {
 	// DISPATH

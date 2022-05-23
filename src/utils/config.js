@@ -9,5 +9,8 @@ const config = {
 		image: '',
 		designation: '',
 	},
+	// Post
+	titleMaxLength: 50,
+	bodyMaxLength: 1000,
 };
 export { config };

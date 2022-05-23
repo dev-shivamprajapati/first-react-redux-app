@@ -7,13 +7,12 @@ import { Button, Grid, TextField } from '@mui/material';
 // Ruter DOM
 import { useNavigate } from 'react-router-dom';
 // REDUX
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // Config
 import { config } from '../utils/config';
 // Actions
-import { showSnackbar } from '../redux/actions/snackbar';
-import { signUp } from '../redux/actions/auth';
+import { showSnackbar } from '../redux/actions/Snackbar';
+import { signUp } from '../redux/actions/Auth';
 
 // FORMIK VALIDATION SCHEMA
 const validationSchema = yup.object({
@@ -32,7 +31,6 @@ const WithMaterialUI = () => {
 	const dispatch = useDispatch();
 	//REDUCERS
 	const userPool = useSelector(({ authReducer }) => authReducer.userPool);
-	console.log(userPool, 'UP');
 	// Formik Initial Values
 	const formik = useFormik({
 		initialValues: {
@@ -159,5 +157,3 @@ const WithMaterialUI = () => {
 };
 
 export default WithMaterialUI;
-
-// ReactDOM.render(<WithMaterialUI />, document.getElementById('root'));
